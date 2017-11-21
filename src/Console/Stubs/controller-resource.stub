@@ -1,0 +1,110 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Repositories\{{class}}\{{class}}RepositoryInterface;
+use App\Services\{{class}}Service;
+use Illuminate\Http\Request;
+
+/**
+ * Class {{class}}Controller
+ * @package App\Http\Controllers
+ */
+class {{class}}Controller extends Controller
+{
+    /**
+     * @var {{class}}RepositoryInterface
+     */
+    private ${{variable}};
+
+    /**
+     * {{class}}Controller constructor.
+     * @param {{class}}Service ${{variable}}
+     */
+    public function __construct({{class}}Service ${{variable}})
+    {
+        $this->{{variable}} = ${{variable}};
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        ${{variable}}s = $this->{{variable}}->all();
+
+        return view('{{variable}}s.index', compact('{{variable}}s'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('{{variable}}s.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        return $this->{{variable}}->create($request);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        ${{variable}} = $this->{{variable}}->find($id);
+
+        return view('{{variable}}s.show', compact('{{variable}}'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        ${{variable}} = $this->{{variable}}->edit($id);
+
+        return view('{{variable}}.edit', compact('{{variable}}'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        return $this->{{variable}}->update($id, $request);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        return $this->{{variable}}->delete($id);
+    }
+}

@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Repositories\{{class}};
+
+use App\Repositories\BaseRepository;
+use App\Models\{{class}};
+
+/**
+ * Class {{class}}Repository
+ * @package App\Repositories\{{class}}
+ */
+Class {{class}}Repository extends BaseRepository implements {{class}}RepositoryInterface
+{
+    /**
+     * @var {{class}}
+     */
+    private $model;
+
+    /**
+     * {{class}}Repository constructor.
+     * @param {{class}} $model
+     */
+    public function __construct({{class}} $model)
+    {
+        $this->model = $model;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function all()
+    {
+        return {{class}}::all();
+    }
+}

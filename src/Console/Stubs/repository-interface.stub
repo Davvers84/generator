@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Repositories\{{class}};
+
+/**
+ * Interface {{class}}RepositoryInterface
+ * @package App\Repositories\{{class}}
+ */
+interface {{class}}RepositoryInterface
+{
+    /**
+     * @return mixed
+     */
+    public function all();
+}

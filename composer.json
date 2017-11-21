@@ -1,0 +1,20 @@
+{
+    "name": "skeleton/generator",
+    "description": "Skeleton Generator Package",
+    "authors": [
+        {
+            "name": "Tom Lloyd",
+            "email": "tomos.lloyd@enta.net"
+        },
+        {
+            "name": "Michael Davenport",
+            "email": "michael.davenport@enta.net"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Skeleton\\Generator\\": "src/"
+        }
+    }
+}

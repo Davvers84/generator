@@ -1,0 +1,79 @@
+<?php
+
+namespace App\Services;
+
+use App\Repositories\{{class}}\{{class}}RepositoryInterface;
+
+/**
+ * Class {{class}}Service
+ * @package App\Services\{{class}}Service
+ */
+class {{class}}Service
+{
+    /**
+     * @var {{class}}RepositoryInterface
+     */
+    private ${{variable}};
+
+    /**
+     * {{class}}Service constructor.
+     * @param {{class}}RepositoryInterface ${{variable}}
+     */
+    public function __construct({{class}}RepositoryInterface ${{variable}})
+    {
+        $this->{{variable}} = ${{variable}};
+    }
+
+    /**
+     * @return mixed
+     */
+    public function all()
+    {
+        return $this->{{variable}}->all();
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function edit($id)
+    {
+        return $this->{{variable}}->find($id);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function find($id)
+    {
+        return $this->{{variable}}->find($id);
+    }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function create(Request $request)
+    {
+        return $this->{{variable}}->create($request);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     */
+    public function update(Request $request, $id)
+    {
+        $this->{{variable}}->update($id, $request);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id)
+    {
+        return $this->{{variable}}->delete($id);
+    }
+}

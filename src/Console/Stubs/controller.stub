@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Repositories\{{class}}\{{class}}RepositoryInterface;
+use App\Services\{{class}}Service;
+use Illuminate\Http\Request;
+
+/**
+ * Class PostController
+ * @package App\Http\Controllers
+ */
+class {{class}}Controller extends Controller
+{
+    
+}
