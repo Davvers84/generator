@@ -17,5 +17,6 @@
             "Skeleton\\Generator\\": "src/"
         }
     },
-    "license": "proprietary"
+    "license": "proprietary",
+    "version": "v0.3"
 }
