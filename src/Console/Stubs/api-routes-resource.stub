@@ -14,4 +14,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::resource('/{{route}}', Modules\{{struct}}\Http\Controllers\{{controller}}::class);
+Route::resource('/{{route}}', app\Http\Controllers\{{controller}}::class);
