@@ -16,5 +16,3 @@ app/Repositories/House/HouseRepositoryInterface.php<br/>
 app/Services/HouseService.php<br/>
 routes/api.php (create if not exists, otherwise appends)<br/>
 routes/web.php (create if not exists, otherwise appends)<br/>
-
-Auto-updated
