@@ -29,7 +29,7 @@ class MakeStructMigrationCommand extends StructCommand
         $pieces = preg_split('/(?=[A-Z])/', $structName);
         $lowerMigrationName = implode('_', $pieces);
         $tableName = preg_replace('/\_/', '', $lowerMigrationName, 1);
-
+        $tableName = str_plural($tableName);
 
         $path = base_path() . '/database/migrations/' . date('Y_m_d') . '_000000_create' . strtolower($lowerMigrationName) . '_table.php';
 
