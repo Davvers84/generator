@@ -26,17 +26,17 @@ class MakeStructMigrationCommand extends StructCommand
     public function handle()
     {
         $structName = ucfirst($this->argument('name'));
+        $pieces = preg_split('/(?=[A-Z])/', $structName);
+        $lowerMigrationName = implode('_', $pieces);
         $plural = str_plural($structName);
-        $stubClassName = ucfirst($plural);
 
-        $path = base_path() . '/database/migrations/' . date('Y_m_d') . '_000000_create_' . strtolower($plural) . '_table.php';
+        $path = base_path() . '/database/migrations/' . date('Y_m_d') . '_000000_create_' . strtolower($lowerMigrationName) . '_table.php';
 
         $stub = 'migration';
 
         $changes = array(
             'class' => $structName
             , 'table' => strtolower($plural)
-            , 'stubClass' => $stubClassName
         );
 
         $this->build($stub, $path, $changes);
