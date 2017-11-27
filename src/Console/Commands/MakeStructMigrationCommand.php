@@ -28,6 +28,8 @@ class MakeStructMigrationCommand extends StructCommand
         $structName = ucfirst($this->argument('name'));
         $pieces = preg_split('/(?=[A-Z])/', $structName);
         $lowerMigrationName = implode('_', $pieces);
+        $lowerMigrationName = str_plural($lowerMigrationName);
+
         $tableName = preg_replace('/\_/', '', $lowerMigrationName, 1);
         $tableName = str_plural($tableName);
 
