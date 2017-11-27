@@ -30,7 +30,7 @@ class MakeStructMigrationCommand extends StructCommand
         $lowerMigrationName = implode('_', $pieces);
         $plural = str_plural($structName);
 
-        $path = base_path() . '/database/migrations/' . date('Y_m_d') . '_000000_create_' . strtolower($lowerMigrationName) . '_table.php';
+        $path = base_path() . '/database/migrations/' . date('Y_m_d') . '_000000_create' . strtolower($lowerMigrationName) . '_table.php';
 
         $stub = 'migration';
 
