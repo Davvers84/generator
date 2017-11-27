@@ -33,6 +33,8 @@ class MakeStructRoutesCommand extends StructCommand
 
     protected function handleWebRoutes($structName)
     {
+        $structName = ucfirst($structName);
+
         $path = base_path() . '/routes/web.php';
 
         $stub = array(
@@ -40,7 +42,13 @@ class MakeStructRoutesCommand extends StructCommand
             , 'appends' => 'web-routes-appends'
         );
 
-        $this->build($stub, $path, array(), true);
+        $changes = array(
+            'route' => strtolower($structName)
+            , 'struct' => $structName
+            , 'controller' => $structName . 'Controller'
+        );
+
+        $this->build($stub, $path, $changes, true);
     }
 
     protected function handleApiRoutes($structName)
@@ -55,9 +63,9 @@ class MakeStructRoutesCommand extends StructCommand
         );
 
         $changes = array(
-            'route' => strtolower($structName),
-            'struct' => $structName,
-            'controller' => $structName . 'Controller'
+            'route' => strtolower($structName)
+            , 'struct' => $structName
+            , 'controller' => $structName . 'Controller'
         );
 
         $this->build($stub, $path, $changes, true);
