@@ -28,6 +28,8 @@ class MakeStructMigrationCommand extends StructCommand
         $structName = ucfirst($this->argument('name'));
         $pieces = preg_split('/(?=[A-Z])/', $structName);
         $lowerMigrationName = implode('_', $pieces);
+        $tableName = preg_replace('/\_/', '', $lowerMigrationName, 1);
+
 
         $path = base_path() . '/database/migrations/' . date('Y_m_d') . '_000000_create' . strtolower($lowerMigrationName) . '_table.php';
 
@@ -35,7 +37,7 @@ class MakeStructMigrationCommand extends StructCommand
 
         $changes = array(
             'class' => $structName
-            , 'table' => strtolower($lowerMigrationName)
+            , 'table' => strtolower($tableName)
         );
 
         $this->build($stub, $path, $changes);
