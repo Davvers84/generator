@@ -43,7 +43,7 @@ class MakeStructRoutesCommand extends StructCommand
         );
 
         $changes = array(
-            'route' => strtolower($structName)
+            'route' => str_plural(strtolower($structName))
             , 'struct' => $structName
             , 'controller' => $structName . 'Controller'
         );
@@ -63,7 +63,7 @@ class MakeStructRoutesCommand extends StructCommand
         );
 
         $changes = array(
-            'route' => strtolower($structName)
+            'route' => str_plural(strtolower($structName))
             , 'struct' => $structName
             , 'controller' => $structName . 'Controller'
         );
