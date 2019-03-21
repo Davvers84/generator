@@ -1,0 +1,83 @@
+version: '3.5'
+services:
+
+  # The Application
+  generator-app:
+    container_name: generator-app
+    image: generator-app
+    build:
+      context: ./
+      dockerfile: docker/app/Dockerfile
+    working_dir: /var/www
+    volumes:
+    - ./:/var/www
+    networks:
+    - entanet-shared
+    - generator
+    depends_on:
+    - generator-database
+    environment:
+    - "APP_URL=http://localhost:8100"
+    - "DB_DATABASE=homestead"
+    - "DB_USERNAME=homestead"
+    - "DB_HOST=generator-database"
+    - "DB_PASSWORD=secret"
+    - "PUBSUB_CONNECTION=kafka"
+    - "KAFKA_BROKERS=kafka"
+    #- "KAFKA_BROKERS=kafka.enta.net"
+    #- "KAFKA_BROKERS=kafka-1.enta.cloud,kafka-2.enta.cloud,kafka-3.enta.cloud"
+    - "GOOGLE_CLIENT_ID=740289608642-85r83rahr9e5g3knc6gil8kksksqalv4.apps.googleusercontent.com"
+    - "GOOGLE_CLIENT_SECRET=u8afm8VtL1vKRIS6HMS0K4EP"
+    - "GOOGLE_REDIRECT=http://localhost:8100/callback/google"
+
+  composer:
+    image: composer:1.7.2
+    command: install --ignore-platform-reqs --no-scripts
+    volumes:
+      - $PWD:/app
+
+  # NGINX
+  generator-web:
+    container_name: generator-web
+    image: generator-web
+    build:
+      context: ./
+      dockerfile: docker/web/Dockerfile
+    working_dir: /var/www
+    networks:
+    - generator
+    depends_on:
+    - generator-app
+    volumes:
+    - ./public:/var/www/public
+    ports:
+    - 8223:80
+
+  # The Database
+  generator-database:
+    container_name: generator-database
+    image: generator-database
+    build:
+      context: ./
+      dockerfile: docker/database/Dockerfile
+    volumes:
+    - generator-db:/var/lib/mysql
+    networks:
+    - generator
+    environment:
+    - "MYSQL_ROOT_PASSWORD=secret"
+    - "MYSQL_USER=homestead"
+    - "MYSQL_PASSWORD=secret"
+    - "MYSQL_DATABASE=homestead"
+    ports:
+    - 33669:3306
+
+
+volumes:
+  generator-db:
+
+networks:
+  entanet-shared:
+    external: true
+  generator:
+    name: generator
