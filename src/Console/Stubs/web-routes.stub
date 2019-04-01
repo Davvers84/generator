@@ -3,4 +3,4 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
-Route::resource('/{{route}}', app\Http\Controllers\{{controller}}::class);
+Route::resource('/{{route}}', App\Http\Controllers\{{controller}}::class);

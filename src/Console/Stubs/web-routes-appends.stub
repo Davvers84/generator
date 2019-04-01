@@ -1,2 +1,1 @@
-
-Route::resource('/{{route}}', app\Http\Controllers\{{controller}}::class);
+Route::resource('/{{route}}', App\Http\Controllers\{{controller}}::class);
