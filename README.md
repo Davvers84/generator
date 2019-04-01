@@ -17,3 +17,12 @@ This will create the following laravel classes:
 - app/Services/HouseService.php
 - routes/api.php (create if not exists, otherwise appends)
 - routes/web.php (create if not exists, otherwise appends)
+
+## Installation
+
+Make sure you add the following to app/config.php
+
+        /*
+         * Package Service Providers...
+         */
+        Skeleton\Generator\Providers\GeneratorServiceProvider::class,
