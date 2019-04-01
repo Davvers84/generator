@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Http\Request;
 use App\Repositories\{{class}}\{{class}}RepositoryInterface;
 
 /**
@@ -63,7 +64,7 @@ class {{class}}Service
      * @param Request $request
      * @param $id
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
         $this->{{variable}}->update($id, $request);
     }
